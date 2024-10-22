@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import FormInput from '../form-input/form-input.component';
+
 
 const defaultFormField = {
   displayName: '',
@@ -9,7 +11,7 @@ const defaultFormField = {
 
 function SignUp() {
   const [formFields, setFormFields] = useState(defaultFormField);
-  const {displayName, email, password, confirmPassword} = formFields;
+  const { displayName, email, password, confirmPassword } = formFields;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,11 +23,32 @@ function SignUp() {
     <div>
       <h2>Don't have an account?</h2>
       <form>
-        <input
+        <FormInput
           label="Display Name"
           name="displayName"
           value={displayName}
+          type="text"
+          onChange={handleChange}
+        />
+        <FormInput
+          label="Email"
+          name="email"
+          value={email}
           type="email"
+          onChange={handleChange}
+        />
+        <FormInput
+          label="Password"
+          name="password"
+          value={password}
+          type="password"
+          onChange={handleChange}
+        />
+        <FormInput
+          label="Confirm Password"
+          name="confirmPassword"
+          value={confirmPassword}
+          type="password"
           onChange={handleChange}
         />
         <button>Sign Up</button>
