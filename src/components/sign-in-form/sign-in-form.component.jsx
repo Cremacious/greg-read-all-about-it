@@ -12,7 +12,7 @@ const defaultFormField = {
   confirmPassword: '',
 };
 
-function SignUp() {
+function SignIn() {
   const [formFields, setFormFields] = useState(defaultFormField);
   const { displayName, email, password, confirmPassword } = formFields;
 
@@ -27,9 +27,7 @@ function SignUp() {
       return;
     }
     try {
-      const { user } = await createAuthUserEmailPassword(email, password);
-      await createUserDocFromAuth(user, { displayName });
-      resetFields();
+      
     } catch (error) {}
   };
 
@@ -41,15 +39,8 @@ function SignUp() {
 
   return (
     <div>
-      <h2>Don't have an account?</h2>
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Display Name"
-          name="displayName"
-          value={displayName}
-          type="text"
-          onChange={handleChange}
-        />
         <FormInput
           label="Email"
           name="email"
@@ -64,17 +55,10 @@ function SignUp() {
           type="password"
           onChange={handleChange}
         />
-        <FormInput
-          label="Confirm Password"
-          name="confirmPassword"
-          value={confirmPassword}
-          type="password"
-          onChange={handleChange}
-        />
-        <button>Sign Up</button>
+        <button>Sign In</button>
       </form>
     </div>
   );
 }
 
-export default SignUp;
+export default SignIn;
