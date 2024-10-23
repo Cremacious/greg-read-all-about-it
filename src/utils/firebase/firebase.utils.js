@@ -2,6 +2,9 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
+  signInWithPopup,
+  signInWithRedirect,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
@@ -19,7 +22,19 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-const auth = getAuth();
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: 'select_account',
+});
+
+export const auth = getAuth();
+
+export const signInWithGooglePopup = () => {
+  signInWithPopup(auth, googleProvider);
+};
+
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 
 const db = getFirestore();
 
