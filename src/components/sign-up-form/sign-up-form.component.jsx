@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import {
-  createAuthUserEmailPassword,
   createUserDocFromAuth,
+  createAuthUserWithEmailAndPassword 
 } from '../../utils/firebase/firebase.utils';
 
 const defaultFormField = {
@@ -27,7 +27,7 @@ function SignUp() {
       return;
     }
     try {
-      const { user } = await createAuthUserEmailPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword (email, password);
       await createUserDocFromAuth(user, { displayName });
       resetFields();
     } catch (error) {}
