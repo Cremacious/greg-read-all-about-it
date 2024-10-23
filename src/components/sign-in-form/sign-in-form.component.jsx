@@ -4,7 +4,6 @@ import {
   createUserDocFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
-  createAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils';
 import { UserContext } from '../../contexts/users.context';
 
