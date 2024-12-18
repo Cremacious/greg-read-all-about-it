@@ -1,7 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore, getDocs } from 'firebase/firestore';
-
+import {
+  collection,
+  addDoc,
+  getFirestore,
+  getDocs,
+  updateDoc,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,8 +22,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-
-export const createCollection = async function (collectionName, initialDocumentData) {
+export const createCollection = async function (
+  collectionName,
+  initialDocumentData
+) {
   try {
     const collectionRef = collection(db, collectionName);
     await addDoc(collectionRef, initialDocumentData);
@@ -33,10 +40,21 @@ export const readCollection = async function (collectionName) {
     const collectionRef = collection(db, collectionName);
     const snapshot = await getDocs(collectionRef);
     const collectionData = snapshot.docs.map((doc) => doc.data());
-    console.log(`Collection '${collectionName}' read successfully`);
     return collectionData;
   } catch (error) {
     console.error('Error reading collection: ', error);
   }
 };
 
+export const editCollection = async function (
+  collectionName,
+  newDocumentData,
+  id
+) {
+  const collectionRef = collection(db, collectionName, id);
+  try {
+    await updateDoc(collectionRef, newDocumentData);
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -5,12 +5,12 @@ import RestaurantListCard from '../../components/restaurant-list-card/restaurant
 import { RestaurantsContext } from '../../context/restaurants.context';
 
 function Restaurants() {
-  const { restaurantsMap } = useContext(RestaurantsContext);
-  const [restaurants, setRestaurants] = useState();
+  const { restaurants } = useContext(RestaurantsContext);
+  const [restaurantsList, setRestaurantsList] = useState();
 
   useEffect(() => {
-    setRestaurants(restaurantsMap);
-  }, [restaurants, restaurantsMap]);
+    setRestaurantsList(restaurantsList);
+  }, [restaurants, restaurantsList]);
 
   return (
     <div>

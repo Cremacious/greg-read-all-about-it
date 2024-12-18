@@ -7,18 +7,18 @@ export const RestaurantsContext = createContext({
 });
 
 export const RestaurantsProvider = ({ children }) => {
-  const [restaurantsMap, setRestaurantsMap] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
       const restaurantsData = await readCollection('restaurants');
-      setRestaurantsMap(restaurantsData);
+      setRestaurants(restaurantsData);
     };
     fetchRestaurants();
   }, []);
 
   return (
-    <RestaurantsContext.Provider value={{ restaurantsMap, setRestaurantsMap }}>
+    <RestaurantsContext.Provider value={{ restaurants }}>
       {children}
     </RestaurantsContext.Provider>
   );
