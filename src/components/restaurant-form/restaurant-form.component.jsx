@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { createCollection } from '../../utils/firebase.utils'
+import { createCollection } from '../../utils/firebase.utils';
+import { newId } from '../../utils/id-generator.utils';
 
 function RestaurantForm() {
   const defaultFormFields = {
@@ -7,6 +8,8 @@ function RestaurantForm() {
     location: '',
     type: '',
     description: '',
+    id: newId(),
+    comments: [],
   };
 
   const [formFields, setFormFields] = useState(defaultFormFields);

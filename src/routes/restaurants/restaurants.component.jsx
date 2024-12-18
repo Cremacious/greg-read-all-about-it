@@ -1,20 +1,32 @@
-import { tempRestaurants } from "../../utils/temp-data";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
-import RestaurantListCard from "../../components/restaurant-list-card/restaurant-list-card.component";
+import RestaurantListCard from '../../components/restaurant-list-card/restaurant-list-card.component';
+
+import { readCollection } from '../../utils/firebase.utils';
 
 function Restaurants() {
+  const [restaurants, setRestaurants] = useState();
 
-    const [restaurants, setRestaurants] = useState(tempRestaurants);
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      const restaurantsData = await readCollection('restaurants');
+      console.log(`restaurants read`);
+      setRestaurants(restaurantsData);
+    };
+    fetchRestaurants();
+  }, []);
+
   return (
     <div>
       <h3>Restaurants</h3>
       <p>View all restaurants</p>
-        <ul>
-            {restaurants.map((restaurant) => (
-            <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
-            ))}
-        </ul>
+      <ul>
+        {restaurants
+          ? restaurants.map((restaurant) => (
+              <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
+            ))
+          : 'Loading...'}
+      </ul>
     </div>
   );
 }

@@ -7,6 +7,12 @@ function Navigation() {
       <ol>
         <Link to="/sign-in">Sign In</Link>
       </ol>
+      <ol>
+        <Link to="/restaurants"> View Restaurants</Link>
+      </ol>
+      <ol>
+        <Link to="/restaurant-form">Add Restaurant</Link>
+      </ol>
       <Outlet />
     </div>
   );

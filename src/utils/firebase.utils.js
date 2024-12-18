@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore } from 'firebase/firestore';
+import { collection, addDoc, getFirestore, getDocs } from 'firebase/firestore';
 
 
 // Your web app's Firebase configuration
@@ -28,5 +28,15 @@ export const createCollection = async function (collectionName, initialDocumentD
   }
 };
 
-// Example usage:
-// createCollection('restaurants', { name: 'First Item', rating: 5 });
+export const readCollection = async function (collectionName) {
+  try {
+    const collectionRef = collection(db, collectionName);
+    const snapshot = await getDocs(collectionRef);
+    const collectionData = snapshot.docs.map((doc) => doc.data());
+    console.log(`Collection '${collectionName}' read successfully`);
+    return collectionData;
+  } catch (error) {
+    console.error('Error reading collection: ', error);
+  }
+};
+

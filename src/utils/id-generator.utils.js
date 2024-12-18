@@ -1,5 +1,4 @@
-import uuidv4 from 'uuid/v4';
+// id-generator.utils.js
+import { v4 as uuidv4 } from 'uuid';
 
-export const newId = () => {
-  return uuidv4();
-};
+export const newId = () => uuidv4();

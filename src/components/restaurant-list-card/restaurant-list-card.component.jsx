@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 function RestaurantListCard({ restaurant }) {
-  const { name, location, description, type } = restaurant;
+  const { name, location, description, type, id } = restaurant;
 
   return (
     <div>
@@ -7,6 +9,9 @@ function RestaurantListCard({ restaurant }) {
       <p>{location}</p>
       <p>{type}</p>
       <p>{description}</p>
+      <button>
+        <Link to={`/restaurant/${id}`}>View</Link>
+      </button>
     </div>
   );
 }
