@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function RestaurantListCard({ restaurant }) {
+  const navigate = useNavigate();
   const { name, location, description, type, id } = restaurant;
+
+
+  const viewRestaurantHandler = () => {
+    navigate(`/restaurants/${id}`);
+  }
+
 
   return (
     <div>
@@ -9,8 +16,8 @@ function RestaurantListCard({ restaurant }) {
       <p>{location}</p>
       <p>{type}</p>
       <p>{description}</p>
-      <button>
-        <Link to={`/restaurant/${id}`}>View</Link>
+      <button onClick={viewRestaurantHandler}>
+        View
       </button>
     </div>
   );

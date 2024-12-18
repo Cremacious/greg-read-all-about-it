@@ -1,15 +1,22 @@
-function Restaurant({ restaurant }) {
-  const { name, location, description, type, comments } = restaurant;
+import { useParams } from "react-router-dom";
+
+function Restaurant() {
+
+    const { id } = useParams();
+
+//   const { name, location, description, type, comments } = restaurant;
 
   return (
     <div>
-      <h3>Restaurant Page</h3>
+        <h3>Restaurant Page</h3>
+        <p>{id}</p>
+      {/* <h3>Restaurant Page</h3>
       <p>{name}</p>
       <p>{location}</p>
       <p>{type}</p>
       <p>{description}</p>
       <p>{comments}</p>
-      <button>Edit</button>
+      <button>Edit</button> */}
     </div>
   );
 }

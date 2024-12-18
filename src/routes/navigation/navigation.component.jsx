@@ -13,6 +13,9 @@ function Navigation() {
       <ol>
         <Link to="/restaurant-form">Add Restaurant</Link>
       </ol>
+      <ol>
+        <Link to="/">Home</Link>
+      </ol>
       <Outlet />
     </div>
   );

@@ -6,6 +6,7 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import Auth from './routes/auth/auth.component';
 import Restaurants from './routes/restaurants/restaurants.component';
+import Restaurant from './routes/restaurant/restaurant.component';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home />} />
             <Route path="sign-in" element={<Auth />} />
-            <Route path="restaurants" element={<Restaurants />} />
+            <Route path="restaurants/" element={<Restaurants />} />
             <Route path="restaurant-form" element={<RestaurantForm />} />
+            <Route path="restaurants/:id" element={<Restaurant />} />
           </Route>
         </Routes>
       </header>

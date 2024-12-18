@@ -9,7 +9,7 @@ function RestaurantForm() {
     type: '',
     description: '',
     id: newId(),
-    comments: [],
+    comments: ["comment1", "comment2"],
   };
 
   const [formFields, setFormFields] = useState(defaultFormFields);
