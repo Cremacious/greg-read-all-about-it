@@ -1,20 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 import RestaurantListCard from '../../components/restaurant-list-card/restaurant-list-card.component';
 
-import { readCollection } from '../../utils/firebase.utils';
+import { RestaurantsContext } from '../../context/restaurants.context';
 
 function Restaurants() {
+  const { restaurantsMap } = useContext(RestaurantsContext);
   const [restaurants, setRestaurants] = useState();
 
   useEffect(() => {
-    const fetchRestaurants = async () => {
-      const restaurantsData = await readCollection('restaurants');
-      console.log(`restaurants read`);
-      setRestaurants(restaurantsData);
-    };
-    fetchRestaurants();
-  }, []);
+    setRestaurants(restaurantsMap);
+  }, [restaurants, restaurantsMap]);
 
   return (
     <div>
