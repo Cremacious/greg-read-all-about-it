@@ -1,57 +1,62 @@
 import { useState } from 'react';
+import { createCollection } from '../../utils/firebase.utils'
 
 function RestaurantForm() {
+  const defaultFormFields = {
+    name: '',
+    location: '',
+    type: '',
+    description: '',
+  };
 
-    const defaultFormFields = {
-        name: '',
-        location: '',
-        type: '',
-        description: '',
-    }
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { name, location, type, description } = formFields;
 
-    const [formFields, setFormFields] = useState(defaultFormFields);
-    const { name, location, type, description } = formFields;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormFields({ ...formFields, [name]: value });
+    console.log(formFields);
+  };
 
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormFields({ ...formFields, [name]: value });
-        console.log(formFields);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createCollection('restaurants', formFields);
+    setFormFields(defaultFormFields);
+  };
 
   return (
     <div>
       <h2>Restaurant Form</h2>
-        <form>
-            <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="Name"
-            />
-            <input
-            type="text"
-            name="location"
-            value={location}
-            onChange={handleChange}
-            placeholder="Location"
-            />
-            <input
-            type="text"
-            name="type"
-            value={type}
-            onChange={handleChange}
-            placeholder="Type"
-            />
-            <textarea
-            name="description"
-            value={description}
-            onChange={handleChange}
-            placeholder="Description"
-            ></textarea>
-            <button type="submit">Submit</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+          placeholder="Name"
+        />
+        <input
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+          placeholder="Location"
+        />
+        <input
+          type="text"
+          name="type"
+          value={type}
+          onChange={handleChange}
+          placeholder="Type"
+        />
+        <textarea
+          name="description"
+          value={description}
+          onChange={handleChange}
+          placeholder="Description"
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
