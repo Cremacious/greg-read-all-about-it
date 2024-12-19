@@ -23,13 +23,19 @@ function Restaurant() {
 
   return (
     <div>
-      <h3>Restaurant Page</h3>
-      <p>{name}</p>
-      <p>{location}</p>
-      <p>{type}</p>
-      <p>{description}</p>
-      <p>{comments}</p>
-      <button onClick={handleEdit}>Edit</button>
+      {restaurant ? (
+        <div>
+          <h3>Restaurant Page</h3>
+          <p>{name}</p>
+          <p>{location}</p>
+          <p>{type}</p>
+          <p>{description}</p>
+          <p>{comments}</p>
+          <button onClick={handleEdit}>Edit</button>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

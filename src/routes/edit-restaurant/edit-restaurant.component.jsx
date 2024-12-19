@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { RestaurantsContext } from '../../context/restaurants.context';
 import { editDocument, deleteDocument } from '../../utils/firebase.utils';
 
 function EditRestaurant() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { restaurants, refreshRestaurants } = useContext(RestaurantsContext);
   const [restaurant, setRestaurant] = useState({
@@ -36,12 +37,14 @@ function EditRestaurant() {
     event.preventDefault();
     await editDocument(id, restaurant);
     refreshRestaurants();
+    navigate('/restaurants/' + id);
   };
 
   // TODO: Redirect after successful delete, give user confirmation
   const handleDelete = async () => {
     await deleteDocument(id);
-    refreshRestaurants();
+    // refreshRestaurants();
+    // navigate('/restaurants');
   };
 
   return (

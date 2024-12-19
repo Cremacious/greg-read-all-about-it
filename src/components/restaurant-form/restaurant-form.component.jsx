@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { createRestaurant } from '../../utils/firebase.utils';
-import { newId } from '../../utils/id-generator.utils';
 import { RestaurantsContext } from '../../context/restaurants.context';
 
 function RestaurantForm() {
