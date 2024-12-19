@@ -3,9 +3,14 @@ import { initializeApp } from 'firebase/app';
 import {
   collection,
   addDoc,
+  where,
   getFirestore,
   getDocs,
   updateDoc,
+  doc,
+  getDoc,
+  query,
+  setDoc,
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -46,15 +51,4 @@ export const readCollection = async function (collectionName) {
   }
 };
 
-export const editCollection = async function (
-  collectionName,
-  newDocumentData,
-  id
-) {
-  const collectionRef = collection(db, collectionName, id);
-  try {
-    await updateDoc(collectionRef, newDocumentData);
-  } catch (error) {
-    console.log(error);
-  }
-};
+
