@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createCollection } from '../../utils/firebase.utils';
+import { createRestaurant } from '../../utils/firebase.utils';
 import { newId } from '../../utils/id-generator.utils';
 
 function RestaurantForm() {
@@ -8,8 +8,7 @@ function RestaurantForm() {
     location: '',
     type: '',
     description: '',
-    id: newId(),
-    comments: ["comment1", "comment2"],
+    comments: ['comment1', 'comment2'],
   };
 
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -23,7 +22,7 @@ function RestaurantForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createCollection('restaurants', formFields);
+    createRestaurant(formFields);
     setFormFields(defaultFormFields);
   };
 

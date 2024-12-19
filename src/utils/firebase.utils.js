@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { newId } from './id-generator.utils';
 import { initializeApp } from 'firebase/app';
 import {
   collection,
@@ -27,16 +28,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-export const createCollection = async function (
-  collectionName,
-  initialDocumentData
-) {
+export const createRestaurant = async function (initialDocumentData) {
   try {
-    const collectionRef = collection(db, collectionName);
-    await addDoc(collectionRef, initialDocumentData);
-    console.log(`Collection '${collectionName}' created with initial document`);
+    const documentId = newId();
+    const docRef = doc(db, 'restaurants', documentId);
+    await setDoc(docRef, { id: documentId, ...initialDocumentData });
+    console.log(`Document '${documentId}' created in collection`);
   } catch (error) {
-    console.error('Error creating collection: ', error);
+    console.error('Error creating document: ', error);
   }
 };
 
@@ -50,5 +49,3 @@ export const readCollection = async function (collectionName) {
     console.error('Error reading collection: ', error);
   }
 };
-
-
