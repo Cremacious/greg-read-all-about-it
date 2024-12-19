@@ -1,21 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, NavLink } from 'react-router-dom';
 
 function Navigation() {
   return (
     <div>
-      <h3>Navigation</h3>
-      <ol>
-        <Link to="/sign-in">Sign In</Link>
-      </ol>
-      <ol>
-        <Link to="/restaurants"> View Restaurants</Link>
-      </ol>
-      <ol>
-        <Link to="/restaurant-form">Add Restaurant</Link>
-      </ol>
-      <ol>
-        <Link to="/">Home</Link>
-      </ol>
+      <p>Navigation</p>
+      <Link to="/"> Home</Link>
+      <Link to="/sign-in"> Sign In </Link>
+      <Link to="/restaurants"> View Restaurants </Link>
+      <Link to="/restaurant-form"> Add Restaurant </Link>
       <Outlet />
     </div>
   );

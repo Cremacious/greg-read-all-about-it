@@ -13,16 +13,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Routes>
-          <Route path="/" element={<Navigation />}>
-            <Route index element={<Home />} />
-            <Route path="sign-in" element={<Auth />} />
-            <Route path="restaurants/" element={<Restaurants />} />
-            <Route path="restaurant-form" element={<RestaurantForm />} />
-            <Route path="restaurants/:id" element={<Restaurant />} />
-            <Route path="edit-restaurant/:id" element={<EditRestaurant />} />
-          </Route>
-        </Routes>
+        <div className="app-view">
+          <Routes>
+            <Route path="/" element={<Navigation />}>
+              <Route index element={<Home />} />
+              <Route path="sign-in" element={<Auth />} />
+              <Route path="restaurants/" element={<Restaurants />} />
+              <Route path="restaurant-form" element={<RestaurantForm />} />
+              <Route path="restaurants/:id" element={<Restaurant />} />
+              <Route path="edit-restaurant/:id" element={<EditRestaurant />} />
+            </Route>
+          </Routes>
+        </div>
       </header>
     </div>
   );
