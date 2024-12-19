@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { RestaurantsContext } from '../../context/restaurants.context';
 
@@ -8,12 +8,18 @@ function Restaurant() {
   const [restaurant, setRestaurant] = useState([]);
   const { name, location, type, description, comments } = restaurant;
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const currentRestaurant = restaurants.find(
       (restaurant) => restaurant.id === id
     );
     setRestaurant(currentRestaurant);
   }, [restaurants, id]);
+
+  const handleEdit = () => {
+    navigate(`/edit-restaurant/${id}`);
+  };
 
   return (
     <div>
@@ -23,7 +29,7 @@ function Restaurant() {
       <p>{type}</p>
       <p>{description}</p>
       <p>{comments}</p>
-      <button>Edit</button>
+      <button onClick={handleEdit}>Edit</button>
     </div>
   );
 }

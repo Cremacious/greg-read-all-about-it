@@ -7,6 +7,7 @@ import Home from './routes/home/home.component';
 import Auth from './routes/auth/auth.component';
 import Restaurants from './routes/restaurants/restaurants.component';
 import Restaurant from './routes/restaurant/restaurant.component';
+import EditRestaurant from './routes/edit-restaurant/edit-restaurant.component';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="restaurants/" element={<Restaurants />} />
             <Route path="restaurant-form" element={<RestaurantForm />} />
             <Route path="restaurants/:id" element={<Restaurant />} />
+            <Route path="edit-restaurant/:id" element={<EditRestaurant />} />
           </Route>
         </Routes>
       </header>
