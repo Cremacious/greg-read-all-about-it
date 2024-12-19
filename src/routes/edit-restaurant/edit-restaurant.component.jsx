@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { RestaurantsContext } from '../../context/restaurants.context';
-import { editDocument } from '../../utils/firebase.utils';
+import { editDocument, deleteDocument } from '../../utils/firebase.utils';
 
 function EditRestaurant() {
   const { id } = useParams();
@@ -35,6 +35,11 @@ function EditRestaurant() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await editDocument(id, restaurant);
+  };
+
+  // TODO: Redirect after successful delete, give user confirmation
+  const handleDelete = async () => {
+    await deleteDocument(id);
   };
 
   return (
@@ -81,6 +86,7 @@ function EditRestaurant() {
         </label>
         <br />
         <button type="submit">Update Restaurant</button>
+        <button onClick={handleDelete}>Delete Restaurant</button>
       </form>
     </div>
   );
