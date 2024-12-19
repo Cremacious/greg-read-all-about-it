@@ -3,15 +3,12 @@ import { newId } from './id-generator.utils';
 import { initializeApp } from 'firebase/app';
 import {
   collection,
-  addDoc,
-  where,
   getFirestore,
   getDocs,
   updateDoc,
   doc,
-  getDoc,
-  query,
   setDoc,
+  deleteDoc,
 } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -47,5 +44,25 @@ export const readCollection = async function (collectionName) {
     return collectionData;
   } catch (error) {
     console.error('Error reading collection: ', error);
+  }
+};
+
+export const editDocument = async function (documentId, updatedDocumentData) {
+  try {
+    const docRef = doc(db, 'restaurants', documentId);
+    await updateDoc(docRef, updatedDocumentData);
+    console.log(`Document '${documentId}' updated in collection`);
+  } catch (error) {
+    console.error('Error updating document: ', error);
+  }
+};
+
+export const deleteDocument = async function (documentId) {
+  try {
+    const docRef = doc(db, 'restaurants', documentId);
+    await deleteDoc(docRef);
+    console.log(`Document '${documentId}' deleted from collection`);
+  } catch (error) {
+    console.error('Error deleting document: ', error);
   }
 };

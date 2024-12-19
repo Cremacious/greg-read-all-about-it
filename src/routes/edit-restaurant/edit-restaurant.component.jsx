@@ -1,10 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { RestaurantsContext } from '../../context/restaurants.context';
-import {
-  getRestaurantByName,
-  updateRestaurant,
-} from '../../utils/firebase.utils';
+import { editDocument } from '../../utils/firebase.utils';
 
 function EditRestaurant() {
   const { id } = useParams();
@@ -34,9 +31,10 @@ function EditRestaurant() {
     }));
   };
 
+  // TODO: Redirect after successful edit
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
+    await editDocument(id, restaurant);
   };
 
   return (
