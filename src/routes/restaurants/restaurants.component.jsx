@@ -1,3 +1,4 @@
+import './restaurants.styles.scss';
 import { useState, useEffect, useContext } from 'react';
 
 import RestaurantListCard from '../../components/restaurant-list-card/restaurant-list-card.component';
@@ -13,9 +14,7 @@ function Restaurants() {
   }, [restaurants, restaurantsList]);
 
   return (
-    <div>
-      <h3>Restaurants</h3>
-      <p>View all restaurants</p>
+    <div className="restaurant-list-container">
       <ul>
         {restaurants
           ? restaurants.map((restaurant) => (

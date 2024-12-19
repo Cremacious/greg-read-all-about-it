@@ -13,17 +13,17 @@ function Home() {
   };
 
   return (
-    <div className="home-containerX">
-      <h3>Home</h3>
+    <div className="home-container">
+      <h3>Welcome to read all about it!</h3>
       <div className="buttons-container">
-        <button className="button btn btn-primary" onClick={handleAddRestaurants}>
+        <button className="button btn" onClick={handleAddRestaurants}>
           Add Restaurant
         </button>
-        <button className="button" onClick={handleViewRestaurants}>
+        <button className="button btn" onClick={handleViewRestaurants}>
           View Restaurants
         </button>
-        <button className="button">Recommend a restaurant</button>
-        <button className="button">Sign In</button>
+        <button className="button btn">Recommend a restaurant</button>
+        <button className="button btn">Sign In</button>
       </div>
     </div>
   );

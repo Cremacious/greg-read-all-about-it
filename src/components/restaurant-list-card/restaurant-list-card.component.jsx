@@ -11,7 +11,7 @@ function RestaurantListCard({ restaurant }) {
 
 
   return (
-    <div>
+    <div className="restaurant-list-container">
       <h3>{name}</h3>
       <p>{location}</p>
       <p>{type}</p>

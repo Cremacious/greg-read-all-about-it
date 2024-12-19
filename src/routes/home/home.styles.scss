@@ -4,11 +4,18 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #dc1010;
   flex-direction: column;
 
   .button {
     margin-right: 10px;
     margin: 20px;
+    background-color: #21770c;
+    color: white;
+    font-weight: 700;
+
+    &:hover {
+      background-color: #175206; // Change to desired hover color
+      color: #ffffff; // Change to desired hover text color
+    }
   }
 }

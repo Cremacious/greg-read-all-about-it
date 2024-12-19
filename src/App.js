@@ -12,7 +12,7 @@ import EditRestaurant from './routes/edit-restaurant/edit-restaurant.component';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-container">
         <div className="app-view">
           <Routes>
             <Route path="/" element={<Navigation />}>
