@@ -5,7 +5,7 @@ import { editDocument, deleteDocument } from '../../utils/firebase.utils';
 
 function EditRestaurant() {
   const { id } = useParams();
-  const { restaurants } = useContext(RestaurantsContext);
+  const { restaurants, refreshRestaurants } = useContext(RestaurantsContext);
   const [restaurant, setRestaurant] = useState({
     name: '',
     location: '',
@@ -35,11 +35,13 @@ function EditRestaurant() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await editDocument(id, restaurant);
+    refreshRestaurants();
   };
 
   // TODO: Redirect after successful delete, give user confirmation
   const handleDelete = async () => {
     await deleteDocument(id);
+    refreshRestaurants();
   };
 
   return (

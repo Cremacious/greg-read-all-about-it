@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { createRestaurant } from '../../utils/firebase.utils';
 import { newId } from '../../utils/id-generator.utils';
+import { RestaurantsContext } from '../../context/restaurants.context';
 
 function RestaurantForm() {
   const defaultFormFields = {
@@ -13,17 +14,18 @@ function RestaurantForm() {
 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { name, location, type, description } = formFields;
+  const { refreshRestaurants } = useContext(RestaurantsContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
-    console.log(formFields);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     createRestaurant(formFields);
     setFormFields(defaultFormFields);
+    refreshRestaurants();
   };
 
   return (
