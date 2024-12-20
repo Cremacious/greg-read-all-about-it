@@ -1,5 +1,12 @@
 .restaurant-list-container {
-  flex-direction: column;
-  background-color: red;
-  margin: 20px;
+  display: flex;
+  border: rgb(238, 9, 9) 1px solid;
+  justify-content: space-evenly;
+
+  .restaurant-list-card {
+    border: black 1px solid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
 }

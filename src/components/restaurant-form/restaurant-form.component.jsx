@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { createRestaurant } from '../../utils/firebase.utils';
 import { RestaurantsContext } from '../../context/restaurants.context';
 import { useNavigate } from 'react-router-dom';
+import { foodTypes } from '../../utils/food-types.utils';
 
 function RestaurantForm() {
   const navigate = useNavigate();
@@ -48,13 +49,16 @@ function RestaurantForm() {
           onChange={handleChange}
           placeholder="Location"
         />
-        <input
-          type="text"
-          name="type"
-          value={type}
-          onChange={handleChange}
-          placeholder="Type"
-        />
+        <select name="type" value={type} onChange={handleChange}>
+          <option value="" disabled>
+            Select Type
+          </option>
+          {foodTypes.map((foodType) => (
+            <option key={foodType} value={foodType}>
+              {foodType}
+            </option>
+          ))}
+        </select>
         <textarea
           name="description"
           value={description}

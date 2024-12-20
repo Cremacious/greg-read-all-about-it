@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react';
 import RestaurantListCard from '../../components/restaurant-list-card/restaurant-list-card.component';
 
 import { RestaurantsContext } from '../../context/restaurants.context';
+import SearchSidebar from '../../components/search-sidebar/search-sidebar.component';
 
 function Restaurants() {
   const { restaurants } = useContext(RestaurantsContext);
@@ -15,13 +16,14 @@ function Restaurants() {
 
   return (
     <div className="restaurant-list-container">
-      <ul>
+      <SearchSidebar />
+      <div className="restaurant-list-card">
         {restaurants
           ? restaurants.map((restaurant) => (
               <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
             ))
           : 'Loading...'}
-      </ul>
+      </div>
     </div>
   );
 }
