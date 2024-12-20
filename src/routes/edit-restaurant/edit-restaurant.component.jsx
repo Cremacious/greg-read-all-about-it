@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { RestaurantsContext } from '../../context/restaurants.context';
 import { editDocument, deleteDocument } from '../../utils/firebase.utils';
+import { foodTypes } from '../../utils/food-types.utils';
 
 function EditRestaurant() {
   const navigate = useNavigate();
@@ -77,12 +78,16 @@ function EditRestaurant() {
         <br />
         <label>
           Type:
-          <input
-            type="text"
-            name="type"
-            value={restaurant.type}
-            onChange={handleChange}
-          />
+          <select name="type" value={restaurant.type} onChange={handleChange}>
+            <option value="" disabled>
+              Select Type
+            </option>
+            {foodTypes.map((foodType) => (
+              <option key={foodType} value={foodType}>
+                {foodType}
+              </option>
+            ))}
+          </select>
         </label>
         <br />
         <label>
