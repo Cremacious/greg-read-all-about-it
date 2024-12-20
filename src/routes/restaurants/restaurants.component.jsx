@@ -16,7 +16,9 @@ function Restaurants() {
 
   return (
     <div className="restaurant-list-container">
-      <SearchSidebar />
+      <div className="restaurant-list-types">
+        <SearchSidebar />
+      </div>
       <div className="restaurant-list-card">
         {restaurants
           ? restaurants.map((restaurant) => (

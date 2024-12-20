@@ -1,4 +1,18 @@
 .search-sidebar-container {
-    display: flex;
+  display: flex;
   flex-direction: column;
+  background-color: rgb(43, 240, 12);
+  justify-content: center;
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(33, 200, 75);
+    justify-content: center;
+  }
+
+  .button {
+    margin: 10px;
+    justify-content: center;
+  }
 }

@@ -2,11 +2,22 @@
   display: flex;
   border: rgb(238, 9, 9) 1px solid;
   justify-content: space-evenly;
+  flex-direction: row;
+}
 
-  .restaurant-list-card {
-    border: black 1px solid;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+.restaurant-list-card {
+  border: black 1px solid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background-color: bisque;
+  width: 75%;
+}
+
+.restaurant-list-types {
+  display: flex;
+  flex-direction: column;
+  // background-color: rgb(238, 9, 9);
+  margin: 20px;
+  width: 25%;
 }
