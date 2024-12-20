@@ -42,10 +42,14 @@ function EditRestaurant() {
 
   // TODO: Redirect after successful delete, give user confirmation
   const handleDelete = async () => {
+    navigate('/restaurants', { replace: true });
     await deleteDocument(id);
-    // refreshRestaurants();
-    // navigate('/restaurants');
+    refreshRestaurants();
   };
+
+  if (!restaurant) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>

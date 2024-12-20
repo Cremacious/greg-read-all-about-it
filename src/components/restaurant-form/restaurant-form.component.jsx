@@ -1,8 +1,10 @@
 import { useState, useContext } from 'react';
 import { createRestaurant } from '../../utils/firebase.utils';
 import { RestaurantsContext } from '../../context/restaurants.context';
+import { useNavigate } from 'react-router-dom';
 
 function RestaurantForm() {
+  const navigate = useNavigate();
   const defaultFormFields = {
     name: '',
     location: '',
@@ -25,6 +27,7 @@ function RestaurantForm() {
     createRestaurant(formFields);
     setFormFields(defaultFormFields);
     refreshRestaurants();
+    navigate('/restaurants');
   };
 
   return (
