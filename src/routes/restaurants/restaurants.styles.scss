@@ -3,15 +3,19 @@
   border: rgb(238, 9, 9) 1px solid;
   justify-content: space-evenly;
   flex-direction: row;
+  height: 80vh;
+  padding-bottom: 10px;
 }
 
-.restaurant-list-card {
+.restaurant-list {
   border: black 1px solid;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  background-color: bisque;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: rgba(32, 165, 27, 0.829);
   width: 75%;
+  justify-content: space-around;
+  overflow-y: auto;
+  // margin-left: 50px;
 }
 
 .restaurant-list-types {

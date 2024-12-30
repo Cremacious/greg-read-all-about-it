@@ -19,7 +19,7 @@ function Restaurants() {
       <div className="restaurant-list-types">
         <SearchSidebar />
       </div>
-      <div className="restaurant-list-card">
+      <div className="restaurant-list">
         {restaurants
           ? restaurants.map((restaurant) => (
               <RestaurantListCard key={restaurant.id} restaurant={restaurant} />

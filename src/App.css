@@ -40,7 +40,7 @@
 .app-view {
   justify-content: center;
   align-content: flex-start;
-  height: 700px;
+  height: 95vh;
   background-color: #f0f0f0;
   flex-direction: column;
   width: 80%;
