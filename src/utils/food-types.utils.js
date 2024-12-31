@@ -6,5 +6,6 @@ export const foodTypes = [
   'American',
   'Seafood',
   'Thai',
+  'Mediterranean',
   'Other',
 ];
