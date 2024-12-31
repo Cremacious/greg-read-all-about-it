@@ -22,14 +22,21 @@ function Home() {
         <img src={logo} alt="Logo" className="logo" />
       </div>
       <div className="buttons-container">
-        <button className="button btn" onClick={handleAddRestaurants}>
+        <button
+          className="button btn button-card"
+          onClick={handleAddRestaurants}
+        >
           Add Restaurant
         </button>
-        <button className="button btn" onClick={handleViewRestaurants}>
+        <button
+          className="button btn button-card"
+          onClick={handleViewRestaurants}
+        >
           View Restaurants
         </button>
-        <button className="button btn">Recommend a restaurant</button>
-        <button className="button btn">Sign In</button>
+        <button className="button btn button-card">
+          Recommend a restaurant
+        </button>
       </div>
     </div>
   );

@@ -1,26 +1,40 @@
-.buttons-container {
+.home-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  .button {
-    margin-right: 10px;
-    margin: 20px;
-    background-color: #21770c;
-    color: white;
-    font-weight: 700;
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.3);
+    border-radius: 20px;
+    width: 80%;
+    height: auto;
+    margin-top: 50px;
 
-    &:hover {
-      background-color: #175206; // Change to desired hover color
-      color: #ffffff; // Change to desired hover text color
+    .button {
+      margin-right: 10px;
+      margin: 20px;
+      background-color: #21770c;
+      color: white;
+      font-weight: 700;
+      width: 20%;
+
+      &:hover {
+        background-color: #175206; // Change to desired hover color
+        color: #ffffff; // Change to desired hover text color
+      }
     }
   }
-}
 
-.logo {
-  width: 50%;
-  
+  .logo {
+    width: 50%;
+  }
+
+  .button-card {
+    box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.3);
+    border-radius: 10px;
+  }
 }

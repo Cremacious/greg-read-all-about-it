@@ -1,0 +1,18 @@
+.navigation-container {
+  display: flex;
+  padding: 10px;
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .back-button {
+    justify-content: flex-start;
+  }
+
+  .next-button {
+    justify-content: flex-end;
+  }
+}
