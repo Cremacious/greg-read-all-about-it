@@ -1,10 +1,14 @@
 import { foodTypes } from '../../utils/food-types.utils';
 import './search-sidebar.styles.scss';
 
-function SearchSidebar() {
+function SearchSidebar({ onChangeHandler }) {
+
+
+
   return (
     <div className="search-sidebar-container">
       <input
+        onChange={onChangeHandler}
         className="search-input form-control"
         type="text"
         placeholder="Search for a restaurant"

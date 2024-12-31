@@ -6,28 +6,40 @@ import RestaurantListCard from '../../components/restaurant-list-card/restaurant
 import { RestaurantsContext } from '../../context/restaurants.context';
 import SearchSidebar from '../../components/search-sidebar/search-sidebar.component';
 
+
 function Restaurants() {
   const { restaurants } = useContext(RestaurantsContext);
-  const [restaurantsList, setRestaurantsList] = useState();
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
-    setRestaurantsList(restaurantsList);
-  }, [restaurants, restaurantsList]);
+    setFilteredRestaurants(
+      restaurants.filter((restaurant) =>
+        restaurant.name.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    );
+  }, [restaurants, searchValue]);
+
+  const onSearchChange = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   return (
     <div className="restaurant-list-container">
       <div className="restaurant-list-types">
-        <SearchSidebar />
+        <SearchSidebar onChangeHandler={onSearchChange} />
       </div>
       <div className="restaurant-list">
-        {restaurants
-          ? restaurants.map((restaurant) => (
+        {filteredRestaurants.length > 0
+          ? filteredRestaurants.map((restaurant) => (
               <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
             ))
-          : 'Loading...'}
+          : 'No restaurants found'}
       </div>
     </div>
   );
 }
+
+
 
 export default Restaurants;
