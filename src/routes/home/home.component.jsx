@@ -1,5 +1,7 @@
 import './home.styles.scss';
 import { useNavigate } from 'react-router-dom';
+import greg from '../../greg.png';
+import logo from '../../logo.png';
 
 function Home() {
   const navigate = useNavigate();
@@ -14,7 +16,11 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h3>Welcome to read all about it!</h3>
+      <div className="logo-container">
+        <img src={greg} alt="Greg giving a thumbs up" className="greg" />
+        <br />
+        <img src={logo} alt="Logo" className="logo" />
+      </div>
       <div className="buttons-container">
         <button className="button btn" onClick={handleAddRestaurants}>
           Add Restaurant
