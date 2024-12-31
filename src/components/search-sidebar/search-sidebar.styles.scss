@@ -1,18 +1,30 @@
 .search-sidebar-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(43, 240, 12);
   justify-content: center;
+  box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.6);
+  border-radius: 20px;
+  background-color: white;
 
   .search-bar {
     display: flex;
     flex-direction: column;
-    background-color: rgb(33, 200, 75);
     justify-content: center;
+    border-radius: 20px;
   }
 
   .button {
     margin: 10px;
     justify-content: center;
+    background-color: #21770c;
+    box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.3);
+    &:hover {
+      background-color: #175206; // Change to desired hover color
+      color: #ffffff; // Change to desired hover text color
+    }
+  }
+  .search-input {
+    margin: 15px;
+    width: auto;
   }
 }

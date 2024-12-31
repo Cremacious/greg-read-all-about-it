@@ -1,6 +1,5 @@
 .restaurant-list-container {
   display: flex;
-  border: rgb(238, 9, 9) 1px solid;
   justify-content: space-evenly;
   flex-direction: row;
   height: 80vh;
@@ -8,20 +7,18 @@
 }
 
 .restaurant-list {
-  border: black 1px solid;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: rgba(32, 165, 27, 0.829);
   width: 75%;
   justify-content: space-around;
   overflow-y: auto;
-  // margin-left: 50px;
+  border-radius: 20px;
 }
 
 .restaurant-list-types {
   display: flex;
   flex-direction: column;
-  // background-color: rgb(238, 9, 9);
   margin: 20px;
   width: 25%;
 }
