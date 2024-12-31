@@ -1,4 +1,5 @@
 .search-sidebar-container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,25 +7,31 @@
   border-radius: 20px;
   background-color: white;
 
-  .search-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 20px;
-  }
-
-  .button {
-    margin: 10px;
-    justify-content: center;
-    background-color: #21770c;
-    box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.3);
-    &:hover {
-      background-color: #175206; // Change to desired hover color
-      color: #ffffff; // Change to desired hover text color
-    }
-  }
   .search-input {
-    margin: 15px;
-    width: auto;
+    border-radius: 20px;
+    border: 1px solid #21770c;
   }
 }
+
+.types-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #21770c !important;
+  cursor: pointer;
+}
+
+.button.selected {
+  background-color: #ff6600 !important; /* Change to your desired color */
+  color: #ffffff;
+}
+

@@ -26,13 +26,14 @@ function Restaurants() {
   };
 
   const onTypeClick = (type) => {
-    setSearchValue(type);
+    setSearchValue((prevValue) => (prevValue === type ? '' : type));
   };
 
   return (
     <div className="restaurant-list-container">
       <div className="restaurant-list-types">
         <SearchSidebar
+          searchValue={searchValue}
           onClickHandler={onTypeClick}
           onChangeHandler={onSearchChange}
         />
