@@ -6,7 +6,6 @@ import RestaurantListCard from '../../components/restaurant-list-card/restaurant
 import { RestaurantsContext } from '../../context/restaurants.context';
 import SearchSidebar from '../../components/search-sidebar/search-sidebar.component';
 
-
 function Restaurants() {
   const { restaurants } = useContext(RestaurantsContext);
   const [searchValue, setSearchValue] = useState('');
@@ -14,8 +13,10 @@ function Restaurants() {
 
   useEffect(() => {
     setFilteredRestaurants(
-      restaurants.filter((restaurant) =>
-        restaurant.name.toLowerCase().includes(searchValue.toLowerCase())
+      restaurants.filter(
+        (restaurant) =>
+          restaurant.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          restaurant.type.toLowerCase().includes(searchValue.toLowerCase())
       )
     );
   }, [restaurants, searchValue]);
@@ -24,10 +25,17 @@ function Restaurants() {
     setSearchValue(event.target.value);
   };
 
+  const onTypeClick = (type) => {
+    setSearchValue(type);
+  };
+
   return (
     <div className="restaurant-list-container">
       <div className="restaurant-list-types">
-        <SearchSidebar onChangeHandler={onSearchChange} />
+        <SearchSidebar
+          onClickHandler={onTypeClick}
+          onChangeHandler={onSearchChange}
+        />
       </div>
       <div className="restaurant-list">
         {filteredRestaurants.length > 0
@@ -39,7 +47,5 @@ function Restaurants() {
     </div>
   );
 }
-
-
 
 export default Restaurants;

@@ -1,10 +1,7 @@
 import { foodTypes } from '../../utils/food-types.utils';
 import './search-sidebar.styles.scss';
 
-function SearchSidebar({ onChangeHandler }) {
-
-
-
+function SearchSidebar({ onChangeHandler, onClickHandler }) {
   return (
     <div className="search-sidebar-container">
       <input
@@ -15,7 +12,11 @@ function SearchSidebar({ onChangeHandler }) {
       />
       <div className="search-bar">
         {foodTypes.map((foodType) => (
-          <button className="btn btn-primary button" key={foodType}>
+          <button
+            className="btn btn-primary button"
+            key={foodType}
+            onClick={() => onClickHandler(foodType)}
+          >
             {foodType}
           </button>
         ))}
