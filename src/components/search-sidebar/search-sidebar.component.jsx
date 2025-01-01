@@ -8,7 +8,7 @@ function SearchSidebar({ searchValue, onChangeHandler, onClickHandler }) {
         onChange={onChangeHandler}
         className="search-input form-control"
         type="text"
-        placeholder="Search for a restaurant"
+        placeholder="Search"
       />
       <div className="types-container">
         {foodTypes.map((foodType) => (
