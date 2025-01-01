@@ -44,6 +44,9 @@
   background-color: #f3fff1f2;
   flex-direction: column;
   width: 80%;
+  @media (max-width: 768px) {
+    width: 95%; /* Set width to 90% on mobile devices */
+  }
   border-radius: 20px;
   display: flex;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
