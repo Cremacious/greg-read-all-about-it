@@ -13,7 +13,7 @@ function SearchSidebar({ searchValue, onChangeHandler, onClickHandler }) {
       <div className="types-container">
         {foodTypes.map((foodType) => (
           <button
-            className={`btn btn-primary button ${
+            className={`btn btn-success button ${
               searchValue === foodType ? 'selected' : ''
             }`}
             key={foodType}

@@ -35,16 +35,24 @@ function Restaurant() {
                 </div>
               </div>
             </div>
-            <div className="col">
-              <p>{name}</p>
-              <p>{location}</p>
-              <p>{type}</p>
-              <p>{description}</p>
-              <p>{comments}</p>
+            <div className="col-md-6 col-xl-4">
+              <div className="name-card">
+                <p>{name}</p>
+              </div>
+              <div className="details-card">
+                <p>{location}</p>
+                <p>{type}</p>
+                <p>{description}</p>
+              </div>
+              <div className="comments-card">
+                <p>{comments}</p>
+              </div>
             </div>
           </div>
 
-          <button onClick={handleEdit}>Edit</button>
+          <button className="btn btn-success" onClick={handleEdit}>
+            Edit
+          </button>
         </div>
       ) : (
         <p>Loading...</p>
