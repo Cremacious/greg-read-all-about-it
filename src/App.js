@@ -14,9 +14,10 @@ function App() {
     <div className="App">
       <header className="App-container">
         <div className="app-view">
+        <Navigation />
           <Routes>
-            <Route path="/" element={<Navigation />}>
-              <Route index element={<Home />} />
+            <Route path="/" element={<Home />}>
+              {/* <Route index element={<Home />} /> */}
               <Route path="sign-in" element={<Auth />} />
               <Route path="restaurants/" element={<Restaurants />} />
               <Route path="restaurant-form" element={<RestaurantForm />} />

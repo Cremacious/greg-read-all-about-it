@@ -13,10 +13,10 @@ function Navigation() {
 
   return (
     <div className="navigation-container">
-      <button className="btn back-button" onClick={handleBack}>
+      <button className="btn btn-outline-success back-button" onClick={handleBack}>
         Back
       </button>
-      <button className="btn next-button" onClick={handleForward}>
+      <button className="btn btn-outline-success next-button" onClick={handleForward}>
         Forward
       </button>
       <Outlet />

@@ -24,22 +24,19 @@
 }
 
 .button {
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
-  max-width: 100%; /* Ensure button does not exceed container width */
-  padding: 15px 10px; /* Adjust padding to make the button taller */
-  line-height: 1.5; /* Adjust line-height for better text spacing */
-  font-size: 14px;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 15px 10px;
+  line-height: 1.5;
   @media (max-width: 768px) {
-    font-size: 12px; /* Adjust font size for mobile */
-    padding: 12px 8px; /* Adjust padding for mobile */
+    font-size: 12px;
+    padding: 12px 8px;
   }
 }
 
 .button.selected {
-  background-color: #ff6600 !important; /* Change to your desired color */
+  background-color: #ff6600 !important;
   color: #ffffff;
 }
-

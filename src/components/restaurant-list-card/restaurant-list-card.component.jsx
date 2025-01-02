@@ -15,7 +15,7 @@ function RestaurantListCard({ restaurant }) {
       <div className="restaurant-card">
         <img src={foodSvgs[type]} alt={type} className="image" />
         <div className="restaurant-name">
-          <h4>{name}</h4>
+          <p>{name}</p>
         </div>
         <div className="restaurant-type">
           <p>{type}</p>
