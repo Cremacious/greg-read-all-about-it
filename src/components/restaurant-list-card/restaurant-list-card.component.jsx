@@ -1,5 +1,6 @@
 import './restaurant-list-card.styles.scss';
 import { useNavigate } from 'react-router-dom';
+import { foodSvgs } from '../../utils/food-types.utils';
 
 function RestaurantListCard({ restaurant }) {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ function RestaurantListCard({ restaurant }) {
   return (
     <div className="restaurant-card-container">
       <div className="restaurant-card">
+        <img src={foodSvgs[type]} alt={type} className="image" />
         <div className="restaurant-name">
           <h3>{name}</h3>
         </div>
