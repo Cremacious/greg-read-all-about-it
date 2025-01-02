@@ -5,7 +5,6 @@ export const foodTypes = [
   'Indian',
   'American',
   'Seafood',
-  'Thai',
   'Mediterranean',
   'Other',
 ];

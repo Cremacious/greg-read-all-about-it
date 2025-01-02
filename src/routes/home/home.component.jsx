@@ -24,7 +24,7 @@ function Home() {
       </div>
 
       <div className="row d-flex justify-content-center button-container">
-        {/* <div className="col-md-6 col-xl-4">
+        <div className="col-md-6 col-xl-4">
           <div className="card button-card">
             <div className="card-body text-center d-flex flex-column align-items-center">
               <button
@@ -35,7 +35,7 @@ function Home() {
               </button>
             </div>
           </div>
-        </div> */}
+        </div>
         <div className="col-md-6 col-xl-4">
           <div className="card button-card">
             <div className="card-body text-center d-flex flex-column align-items-center">
