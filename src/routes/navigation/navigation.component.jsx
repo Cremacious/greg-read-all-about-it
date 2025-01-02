@@ -1,4 +1,5 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import './navigation.styles.scss';
 
 function Navigation() {
   const navigate = useNavigate();
