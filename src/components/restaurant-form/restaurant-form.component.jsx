@@ -84,10 +84,10 @@ function RestaurantForm() {
               placeholder="Description"
             ></textarea>
           </div>
+          <button className="btn btn-success" type="submit">
+            Submit
+          </button>
         </form>
-        <button className="btn btn-success" type="submit">
-          Submit
-        </button>
       </div>
     </div>
   );

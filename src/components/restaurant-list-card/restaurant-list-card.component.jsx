@@ -15,7 +15,7 @@ function RestaurantListCard({ restaurant }) {
       <div className="restaurant-card">
         <img src={foodSvgs[type]} alt={type} className="image" />
         <div className="restaurant-name">
-          <h3>{name}</h3>
+          <h4>{name}</h4>
         </div>
         <div className="restaurant-type">
           <p>{type}</p>
@@ -25,7 +25,7 @@ function RestaurantListCard({ restaurant }) {
         </div>
         <br />
         <button
-          className="view-button btn btn-primary"
+          className="view-button btn btn-success"
           onClick={viewRestaurantHandler}
         >
           View
