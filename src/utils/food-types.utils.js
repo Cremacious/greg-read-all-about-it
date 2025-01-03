@@ -10,6 +10,7 @@ export const foodTypes = [
   'Italian',
   'Asian',
   'Latino',
+  'Indian',
   'American',
   'Seafood',
   'Mediterranean',
