@@ -26,7 +26,7 @@ function Restaurant() {
     return <p>Loading...</p>; // Show loading state if restaurant is not yet loaded
   }
 
-  const { name, location, type, description, comments } = restaurant;
+  const { name, location, type, description, } = restaurant;
 
   return (
     <div>
