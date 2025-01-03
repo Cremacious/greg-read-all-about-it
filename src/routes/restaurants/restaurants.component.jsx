@@ -6,7 +6,6 @@ import RestaurantListCard from '../../components/restaurant-list-card/restaurant
 
 import { RestaurantsContext } from '../../context/restaurants.context';
 import SearchSidebar from '../../components/search-sidebar/search-sidebar.component';
-import greg from '../../greg.png';
 
 function Restaurants() {
   const navigate = useNavigate();
@@ -50,13 +49,14 @@ function Restaurants() {
           />
         </div>
         <div className="restaurant-list">
-          {filteredRestaurants.length > 0 ? (
-            filteredRestaurants.map((restaurant) => (
-              <RestaurantListCard key={restaurant.id} restaurant={restaurant} />
-            ))
-          ) : (
-            <p>Loading...</p>
-          )}
+          {filteredRestaurants.length > 0
+            ? filteredRestaurants.map((restaurant) => (
+                <RestaurantListCard
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                />
+              ))
+            : 'No restaurants found'}
         </div>
       </div>
     </div>
