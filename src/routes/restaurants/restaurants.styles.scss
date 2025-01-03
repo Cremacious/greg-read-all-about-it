@@ -7,7 +7,7 @@
 
   .restaurant-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     background-color: #188754;
     width: 75%;
     justify-content: space-evenly;
@@ -15,21 +15,12 @@
     border-radius: 20px;
     margin-right: 20px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    @media (max-width: 1440px) {
-      grid-template-columns: repeat(2, 1fr);
-      justify-content: center;
-    }
-    @media (max-width: 720px) {
-      grid-template-columns: repeat(1, 1fr);
-      justify-content: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
     }
   }
 }
-
-// .restaurant-list {
-//   width: 75%;
-//   overflow-y: auto;
-// }
 
 .restaurant-list-types {
   display: flex;

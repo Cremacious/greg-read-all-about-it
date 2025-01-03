@@ -22,14 +22,13 @@ function RestaurantListCard({ restaurant }) {
         </div>
         <div className="restaurant-location">
           <p>{location}</p>
+          <button
+            className="view-button btn btn-success"
+            onClick={viewRestaurantHandler}
+          >
+            View
+          </button>
         </div>
-        <br />
-        <button
-          className="view-button btn btn-success"
-          onClick={viewRestaurantHandler}
-        >
-          View
-        </button>
       </div>
     </div>
   );
