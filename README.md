@@ -46,3 +46,68 @@ To get started with the project, follow these steps:
    git clone https://github.com/your-username/greg-read-all-about-it.git
    cd greg-read-all-about-it
    ```
+
+=======
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+
+   ```bash
+   npm start
+   ```
+
+4. **Build the project for production**:
+   ```bash
+   npm run build
+   ```
+
+## Project Structure
+
+The project structure is organized as follows:
+
+```
+greg-read-all-about-it/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── map/
+│   │   │   └── map.component.jsx
+│   │   └── restaurant-list-card/
+│   │       └── restaurant-list-card.styles.scss
+│   ├── context/
+│   │   └── restaurants.context.jsx
+│   ├── routes/
+│   │   ├── home/
+│   │   ├── auth/
+│   │   ├── restaurants/
+│   │   │   └── restaurants.styles.scss
+│   │   └── restaurant/
+│   │       └── restaurant.component.jsx
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact
+
+For any questions or suggestions, please contact Greg at [greg@example.com](mailto:greg@example.com).
+
+---
+
+Thank you for using **Greg Read All About It**! Enjoy exploring and sharing your favorite local restaurants.
+
+```
+
+```
