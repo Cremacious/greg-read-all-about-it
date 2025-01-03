@@ -4,7 +4,7 @@
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.6);
-  max-height: 265px;
+  position: relative; // Add relative positioning to the container
 }
 
 .restaurant-card {
@@ -12,32 +12,77 @@
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  max-height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center items horizontally
+  justify-content: space-between;
+  position: relative; // Add relative positioning to the card
 }
 
 .image {
-  width: 20%;
+  width: 25%; // Adjust width as needed
   border-radius: 10px;
+  margin-bottom: 10px; // Add some space below the image
 }
 
 .restaurant-name {
-  font-size: 18px;
+  font-size: 7vw; // Adjust font size based on viewport width
   font-weight: bold;
+  text-align: center; // Center the text
 }
 
 .restaurant-type {
-  font-size: 14px;
+  font-size: 0.5vw; // Adjust font size based on viewport width
   color: #ffffff;
   background-color: #188754;
   border-radius: 20px;
   font-weight: bold;
+  padding: 0.5vw; // Adjust padding based on viewport width
+  position: absolute; // Position the type absolutely
+  top: 10px; // Adjust the top position as needed
+  right: 10px; // Adjust the right position as needed
 }
 
 .restaurant-location {
-  font-size: 12px;
+  font-size: 4vw; // Adjust font size based on viewport width
   font-weight: bold;
+  text-align: center; // Center the text
 }
 
-.view-button {
-  margin: 2px;
+
+@media (min-width: 768px) {
+  .restaurant-name {
+    font-size: 2vw; // Adjust font size for larger screens
+  }
+
+  .restaurant-type {
+    font-size: 0.8vw; // Adjust font size for larger screens
+  }
+
+  .restaurant-location {
+    font-size: 1.2vw; // Adjust font size for larger screens
+  }
+
+  .image {
+    width: 30%; // Adjust image size for larger screens
+  }
+}
+
+@media (min-width: 1024px) {
+  .restaurant-name {
+    font-size: 1.5vw; // Adjust font size for even larger screens
+  }
+
+  .restaurant-type {
+    font-size: 0.8vw; // Adjust font size for even larger screens
+  }
+
+  .restaurant-location {
+    font-size: 1vw; // Adjust font size for even larger screens
+  }
+
+  .image {
+    width: 20%; // Adjust image size for even larger screens
+  }
+
 }

@@ -17,17 +17,13 @@ function RestaurantListCard({ restaurant }) {
         <div className="restaurant-name">
           <p>{name}</p>
         </div>
-        <div className="restaurant-type">
-          <p>{type}</p>
-        </div>
         <div className="restaurant-location">
           <p>{location}</p>
-          <button
-            className="view-button btn btn-success"
-            onClick={viewRestaurantHandler}
-          >
-            View
-          </button>
+          <div className='button-container'>
+            <button className="btn btn-lg btn-success " onClick={viewRestaurantHandler}>
+              View
+            </button>
+          </div>
         </div>
       </div>
     </div>
