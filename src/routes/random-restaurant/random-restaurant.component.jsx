@@ -26,7 +26,8 @@ function RandomRestaurant() {
       <button className="btn btn-success" onClick={handleBack}>
         Back
       </button>
-      <h1>Random Restaurant</h1>
+      <h1>Need a suggestion?</h1>
+      <h4>Find a random place to eat</h4>
       <button className="btn btn-success" onClick={handleChooseRandom}>
         Choose Random Restaurant
       </button>

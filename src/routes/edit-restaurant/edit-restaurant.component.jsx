@@ -4,6 +4,8 @@ import { RestaurantsContext } from '../../context/restaurants.context';
 import { editDocument, deleteDocument } from '../../utils/firebase.utils';
 import { foodTypes } from '../../utils/food-types.utils';
 
+import './edit-restaurant.styles.scss';
+
 function EditRestaurant() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -48,60 +50,80 @@ function EditRestaurant() {
     refreshRestaurants();
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   if (!restaurant) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>Edit Restaurant</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={restaurant.name}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Location:
-          <input
-            type="text"
-            name="location"
-            value={restaurant.location}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Type:
-          <select name="type" value={restaurant.type} onChange={handleChange}>
-            <option value="" disabled>
-              Select Type
-            </option>
-            {foodTypes.map((foodType) => (
-              <option key={foodType} value={foodType}>
-                {foodType}
+    <div className=" edit-container row d-flex justify-content-center">
+      <div className="col-md-6 col-xl-4">
+        <button className="btn btn-success" onClick={handleBack}>
+          Back
+        </button>
+        <form className="form-field" onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              className="form-card form-control"
+              type="text"
+              name="name"
+              value={restaurant.name}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Location:
+            <input
+              className="form-card form-control"
+              type="text"
+              name="location"
+              value={restaurant.location}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Type:
+            <select
+              className="form-card form-control"
+              name="type"
+              value={restaurant.type}
+              onChange={handleChange}
+            >
+              <option value="" disabled>
+                Select Type
               </option>
-            ))}
-          </select>
-        </label>
-        <br />
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={restaurant.description}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Update Restaurant</button>
-        <button onClick={handleDelete}>Delete Restaurant</button>
-      </form>
+              {foodTypes.map((foodType) => (
+                <option key={foodType} value={foodType}>
+                  {foodType}
+                </option>
+              ))}
+            </select>
+          </label>
+          <br />
+          <label>
+            Description:
+            <textarea
+              className="form-card form-control"
+              name="description"
+              value={restaurant.description}
+              onChange={handleChange}
+            />
+          </label>
+          <br />
+          <button className="btn btn-success" type="submit">
+            Update Restaurant
+          </button>
+          <button className="btn btn-success" onClick={handleDelete}>
+            Delete Restaurant
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
