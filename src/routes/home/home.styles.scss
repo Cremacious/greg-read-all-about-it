@@ -15,10 +15,21 @@
 .greg-container {
   display: flex;
   justify-content: center;
-  align-items: center; // Full viewport height to center vertically
+  align-items: center; 
 }
 
 .greg {
   width: 150px;
   margin: 25px;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; // Align items to the bottom
+  flex-grow: 1; // Allow the container to grow and take up available space
+}
+
+.sign-in-link {
+  margin: 0px;
 }

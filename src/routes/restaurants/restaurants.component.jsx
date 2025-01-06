@@ -35,11 +35,20 @@ function Restaurants() {
     navigate('/');
   };
 
+  const handleAddRestaurants = () => {
+    navigate('/restaurant-form');
+  };
+
   return (
     <div className="">
-      <div className='home-button-container'>
+      <div className="button-container">
         <button className="btn btn-success home-button" onClick={handleBack}>
           Back To Home
+        </button>
+      </div>
+      <div className="button-container">
+        <button className="btn btn-success " onClick={handleAddRestaurants}>
+          Add New Restaurant{' '}
         </button>
       </div>
       <div className="restaurant-list-container">
