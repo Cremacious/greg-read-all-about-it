@@ -37,9 +37,11 @@ function Restaurants() {
 
   return (
     <div className="">
-      <button className="btn btn-success home-button" onClick={handleBack}>
-        Back To Home
-      </button>
+      <div className='home-button-container'>
+        <button className="btn btn-success home-button" onClick={handleBack}>
+          Back To Home
+        </button>
+      </div>
       <div className="restaurant-list-container">
         <div className="restaurant-list-types">
           <SearchSidebar

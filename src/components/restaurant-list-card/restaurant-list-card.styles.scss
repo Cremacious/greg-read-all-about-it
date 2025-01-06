@@ -2,8 +2,6 @@
   display: flex;
   align-content: center;
   margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 8px 8px 0 rgba(0.2, 0.2, 0.2, 0.6);
   position: relative; // Add relative positioning to the container
 }
 
@@ -17,6 +15,7 @@
   align-items: center; // Center items horizontally
   justify-content: space-between;
   position: relative; // Add relative positioning to the card
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .image {
