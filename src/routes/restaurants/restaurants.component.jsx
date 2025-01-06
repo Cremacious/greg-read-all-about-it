@@ -36,7 +36,7 @@ function Restaurants() {
   };
 
   return (
-    <div>
+    <div className="">
       <button className="btn btn-success home-button" onClick={handleBack}>
         Back To Home
       </button>

@@ -26,7 +26,7 @@ function Restaurant() {
     return <p>Loading...</p>;
   }
 
-  const { name, location, type, description } = restaurant;
+  const { name, location, type } = restaurant;
 
   return (
     <div className="container">
