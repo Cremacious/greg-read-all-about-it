@@ -1,14 +1,10 @@
 import './home.styles.scss';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import greg from '../../greg.png';
 import logo from '../../logo.png';
 
 function Home() {
   const navigate = useNavigate();
-
-  // const handleAddRestaurants = () => {
-  //   navigate('/restaurant-form');
-  // };
 
   const handleViewRestaurants = () => {
     navigate('/restaurants');

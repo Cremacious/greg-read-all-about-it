@@ -9,7 +9,6 @@ import Restaurants from './routes/restaurants/restaurants.component';
 import Restaurant from './routes/restaurant/restaurant.component';
 import EditRestaurant from './routes/edit-restaurant/edit-restaurant.component';
 
-
 function App() {
   return (
     <div className="App">
@@ -25,9 +24,11 @@ function App() {
             <Route path="edit-restaurant/:id" element={<EditRestaurant />} />
             <Route path="random-restaurant" element={<RandomRestaurant />} />
           </Routes>
-        </div>
-        <div className='sign-in-container'>
-          <Link to='/sign-in' className='sign-in-link'>Greg? Sign in here..</Link>
+          <div className="sign-in-container">
+            <Link to="/sign-in" className="sign-in-link">
+              Greg? Sign in here...
+            </Link>
+          </div>
         </div>
       </header>
     </div>
