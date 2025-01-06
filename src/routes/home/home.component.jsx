@@ -14,6 +14,10 @@ function Home() {
     navigate('/restaurants');
   };
 
+  const handleRandomRestaurant = () => {
+    navigate('/random-restaurant');
+  }
+
   return (
     <>
       <div className="logo-container">
@@ -53,7 +57,7 @@ function Home() {
             <div className="card-body text-center d-flex flex-column align-items-center">
               <button
                 className="btn btn-success"
-                onClick={handleViewRestaurants}
+                onClick={handleRandomRestaurant}
               >
                 Random Restaurant
               </button>

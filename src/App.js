@@ -2,7 +2,7 @@ import './App.css';
 
 import { Route, Routes } from 'react-router-dom';
 import RestaurantForm from './components/restaurant-form/restaurant-form.component';
-import Navigation from './routes/navigation/navigation.component';
+import RandomRestaurant from './routes/random-restaurant/random-restaurant.component';
 import Home from './routes/home/home.component';
 import Auth from './routes/auth/auth.component';
 import Restaurants from './routes/restaurants/restaurants.component';
@@ -22,6 +22,7 @@ function App() {
             <Route path="restaurant-form" element={<RestaurantForm />} />
             <Route path="restaurants/:id" element={<Restaurant />} />
             <Route path="edit-restaurant/:id" element={<EditRestaurant />} />
+            <Route path="random-restaurant" element={<RandomRestaurant />} />
           </Routes>
         </div>
       </header>

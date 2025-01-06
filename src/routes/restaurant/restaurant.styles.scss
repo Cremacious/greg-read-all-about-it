@@ -1,9 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: red;
+}
+
 .map-card {
-  margin: 20px;
-  height: 100%;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .name-card {
@@ -13,18 +19,10 @@
   margin: 20px;
 }
 
-.details-card {
-  background-color: white;
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #0414f8;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  margin: 20px;
 }
-
-
-.comments-card {
-    background-color: white;
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
-    margin: 20px;
-  }
-

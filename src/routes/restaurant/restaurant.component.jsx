@@ -23,39 +23,37 @@ function Restaurant() {
   };
 
   if (!restaurant) {
-    return <p>Loading...</p>; // Show loading state if restaurant is not yet loaded
+    return <p>Loading...</p>;
   }
 
-  const { name, location, type, description, } = restaurant;
+  const { name, location, type, description } = restaurant;
 
   return (
-    <div>
-      <div className="row d-flex justify-content-center">
-        <div className="col-md-6 col-xl-4">
-          <div className="card map-card">
-            <div className="card-body text-center d-flex flex-column align-items-center">
-              <Map address={location} />
+    <div className="container">
+      <div className="restaurant-card">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-6 col-xl-4">
+            <div className="">
+              <div className="card-body text-center d-flex flex-column align-items-center">
+                <Map address={location} />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-xl-4">
+            <div className="name-card">
+              <p>{name}</p>
+            </div>
+            <div className="">
+              <p>{location}</p>
+              <p>{type}</p>
             </div>
           </div>
         </div>
-        <div className="col-md-6 col-xl-4">
-          <div className="name-card">
-            <p>{name}</p>
-          </div>
-          <div className="details-card">
-            <p>{location}</p>
-            <p>{type}</p>
-            <p>{description}</p>
-          </div>
-          <div className="comments-card">
-            
-          </div>
-        </div>
-      </div>
 
-      <button className="btn btn-success" onClick={handleEdit}>
-        Edit
-      </button>
+        <button className="btn btn-success" onClick={handleEdit}>
+          Edit
+        </button>
+      </div>
     </div>
   );
 }
