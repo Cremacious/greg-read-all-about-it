@@ -29,6 +29,7 @@ function Auth() {
       const user = await signInUser(email, password);
       setCurrentUser(user);
       setFormFields(defaultFormFields);
+      navigate('/restaurants');
     } catch (error) {
       console.error('Error signing in', error);
     }

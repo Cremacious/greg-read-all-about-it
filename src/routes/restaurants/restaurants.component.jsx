@@ -1,6 +1,7 @@
 import './restaurants.styles.scss';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/user.context';
 
 import RestaurantListCard from '../../components/restaurant-list-card/restaurant-list-card.component';
 
@@ -9,6 +10,7 @@ import SearchSidebar from '../../components/search-sidebar/search-sidebar.compon
 
 function Restaurants() {
   const navigate = useNavigate();
+  const {currentUser} = useContext(UserContext);
   const { restaurants } = useContext(RestaurantsContext);
   const [searchValue, setSearchValue] = useState('');
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -21,7 +23,7 @@ function Restaurants() {
           restaurant.type.toLowerCase().includes(searchValue.toLowerCase())
       )
     );
-  }, [restaurants, searchValue]);
+  }, [restaurants, searchValue, currentUser]);
 
   const onSearchChange = (event) => {
     setSearchValue(event.target.value);
@@ -41,13 +43,22 @@ function Restaurants() {
 
   return (
     <div className="">
-      <div className='button-container'>
-        <button className="btn restaurant-button btn-success" onClick={handleBack}>
+      <div className="button-container">
+        <button
+          className="btn restaurant-button btn-success"
+          onClick={handleBack}
+        >
           Back To Home
         </button>
-        <button className="btn restaurant-button btn-success " onClick={handleAddRestaurants}>
-          Add New Restaurant
-        </button>
+
+        {currentUser && (
+          <button
+            className="btn restaurant-button btn-success "
+            onClick={handleAddRestaurants}
+          >
+            Add New Restaurant
+          </button>
+        )}
       </div>
 
       <div className="restaurant-list-container">

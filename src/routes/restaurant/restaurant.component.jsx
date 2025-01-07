@@ -1,10 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
+
+import { UserContext } from '../../context/user.context';
 import { RestaurantsContext } from '../../context/restaurants.context';
 import Map from '../../components/map/map.component';
 import './restaurant.styles.scss';
 
 function Restaurant() {
+  const { currentUser } = useContext(UserContext);
   const { restaurants } = useContext(RestaurantsContext);
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null); // Initialize to null
@@ -35,9 +38,11 @@ function Restaurant() {
   return (
     <div className="restaurant-container">
       <div className="restaurant-buttons-container">
-        <button className="btn btn-success" onClick={handleEdit}>
-          Edit
-        </button>
+        {currentUser && (
+          <button className="btn btn-success" onClick={handleEdit}>
+            Edit
+          </button>
+        )}
         <button className="btn btn-success" onClick={handleBack}>
           Back
         </button>
