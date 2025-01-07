@@ -42,7 +42,7 @@ function Restaurants() {
   return (
     <div className="">
       <div className='button-container'>
-        <button className="btn restaurant-button btn-success home-button" onClick={handleBack}>
+        <button className="btn restaurant-button btn-success" onClick={handleBack}>
           Back To Home
         </button>
         <button className="btn restaurant-button btn-success " onClick={handleAddRestaurants}>

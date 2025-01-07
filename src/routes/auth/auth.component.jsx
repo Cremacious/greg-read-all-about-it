@@ -12,7 +12,7 @@ function Auth() {
   const handleSubmit = (event) => {};
 
   return (
-    <div>
+    <div className='auth-container'>
       <div className=" sign-in-container row d-flex justify-content-center">
         <div className="col-md-6 col-xl-4">
           <form onSubmit={handleSubmit} className="form-field">
