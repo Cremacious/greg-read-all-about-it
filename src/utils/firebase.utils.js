@@ -11,6 +11,13 @@ import {
   deleteDoc,
 } from 'firebase/firestore';
 
+import {
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getAuth,
+} from 'firebase/auth';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyBuDOlmwUmeMsZ68UzqThOQ7vY9k6RCNeI',
@@ -21,9 +28,9 @@ const firebaseConfig = {
   appId: '1:519752582297:web:55b6e5c0dc89b72528a408',
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 export const createRestaurant = async function (initialDocumentData) {
   try {
@@ -66,3 +73,40 @@ export const deleteDocument = async function (documentId) {
     console.error('Error deleting document: ', error);
   }
 };
+
+export const signInUser = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log('Signed in');
+  } catch (error) {
+    console.error('Error signing in user:', error);
+  }
+};
+
+export const signOutUser = async () => {
+  try {
+    await signOut(auth);
+    console.log('User signed out');
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// export const createUser = async function (username='gregread', password='Battery18!') {
+//   try {
+//     const userCredential = await createUserWithEmailAndPassword(
+//       auth,
+//       username,
+//       password
+//     );
+//     const newUser = userCredential.user;
+//     const userDocRef = doc(db, 'users', newUser.uid);
+//     await setDoc(userDocRef, { email: newUser.email });
+//   } catch (error) {
+//     console.error('Error creating user: ', error);
+//   }
+// };
