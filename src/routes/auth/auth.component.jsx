@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
-import { signInUser } from '../../utils/firebase.utils';
+import { signInUser, signOutUser } from '../../utils/firebase.utils';
 
 function Auth() {
   const defaultFormFields = {
@@ -29,6 +29,10 @@ function Auth() {
     event.preventDefault();
     signInUser(email, password);
     setFormFields(defaultFormFields);
+  };
+
+  const handleSignOut = () => {
+    signOutUser();
   };
 
   return (
@@ -64,6 +68,9 @@ function Auth() {
           </form>
           <button className="btn btn-success" onClick={handleBack}>
             Not Greg?
+          </button>
+          <button className="btn btn-success signout" onClick={handleSignOut}>
+            Sign Out
           </button>
         </div>
       </div>
