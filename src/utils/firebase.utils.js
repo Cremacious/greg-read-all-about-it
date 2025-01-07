@@ -9,13 +9,14 @@ import {
   doc,
   setDoc,
   deleteDoc,
+  getDoc
 } from 'firebase/firestore';
 
 import {
   signOut,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged
 } from 'firebase/auth';
 
 // Your web app's Firebase configuration
@@ -76,14 +77,10 @@ export const deleteDocument = async function (documentId) {
 
 export const signInUser = async (email, password) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    console.log('Signed in');
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    return userCredential.user;
   } catch (error) {
-    console.error('Error signing in user:', error);
+    console.error('Error signing in user', error);
   }
 };
 
@@ -95,6 +92,36 @@ export const signOutUser = async () => {
     console.error(error);
   }
 };
+
+export const onAuthStateChangedListener = (callback) => {
+  return onAuthStateChanged(auth, callback);
+};
+
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+  if (!userAuth) return;
+
+  const userDocRef = doc(db, 'users', userAuth.uid);
+  const userSnapshot = await getDoc(userDocRef);
+
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInformation,
+      });
+    } catch (error) {
+      console.error('Error creating user document', error);
+    }
+  }
+
+  return userDocRef;
+};
+
 
 // export const createUser = async function (username='gregread', password='Battery18!') {
 //   try {

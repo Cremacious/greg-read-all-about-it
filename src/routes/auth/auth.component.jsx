@@ -12,7 +12,7 @@ function Auth() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
   const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser, signOut } = useContext(UserContext);
 
   const handleBack = () => {
     navigate('/');
@@ -23,25 +23,24 @@ function Auth() {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    signInUser(email, password);
-    setCurrentUser(currentUser);
-    console.log('User is' + currentUser);
-    setFormFields(defaultFormFields);
+    try {
+      const user = await signInUser(email, password);
+      setCurrentUser(user);
+      setFormFields(defaultFormFields);
+    } catch (error) {
+      console.error('Error signing in', error);
+    }
   };
 
   const handleSignOut = () => {
-    // signOutUser();
-  };
-
-  const handleTest = () => {
-    console.log(currentUser);
+    signOut();
   };
 
   return (
     <div className="auth-container">
-      <div className=" sign-in-container row d-flex justify-content-center">
+      <div className="sign-in-container row d-flex justify-content-center">
         <div className="col-md-6 col-xl-4">
           <form onSubmit={handleSubmit} className="form-field">
             <br />
@@ -70,18 +69,11 @@ function Auth() {
           <button className="btn btn-success" onClick={handleBack}>
             Not Greg?
           </button>
-          <button className="btn btn-success signout" onClick={handleSignOut}>
-            Sign Out
-          </button>
-          <button onClick={handleTest}>Test</button>
-
-          {/* {user ? (
-            <div>
-              <h4>Test</h4>
-            </div>
-          ) : (
-            <p>Please sign in to see the special button.</p>
-          )} */}
+          {currentUser && (
+            <button className="btn btn-success signout" onClick={handleSignOut}>
+              Sign Out
+            </button>
+          )}
         </div>
       </div>
     </div>
