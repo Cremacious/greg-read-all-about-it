@@ -1,25 +1,25 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
-const UserContext = createContext();
+
+//as the actual value
+export const UserContext = createContext({
+  currentUser: null,
+  setCurrentUser: () => {},
+});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+  const value = { currentUser, setCurrentUser };
 
-  const signIn = (userData) => {
-    setUser(userData);
-  };
 
-  const signOut = () => {
-    setUser(null);
-  };
-
-  return (
-    <UserContext.Provider value={{ user, signIn, signOut }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
-
-export const useUser = () => {
-  return useContext(UserContext);
+//   useEffect(() => {
+//     const unsubscribe = onAuthStateChangedListener((user) => {
+//       if (user) {
+//         createUserDocumentFromAuth(user);
+//       }
+//       setCurrentUser(user);
+//     });
+//     return unsubscribe;
+//   }, []);
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

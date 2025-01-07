@@ -1,10 +1,8 @@
 import './auth.styles.scss';
-
 import { useNavigate } from 'react-router-dom';
-
-import { useState } from 'react';
-
-import { signInUser, signOutUser } from '../../utils/firebase.utils';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../context/user.context';
+import { signInUser } from '../../utils/firebase.utils';
 
 function Auth() {
   const defaultFormFields = {
@@ -13,8 +11,8 @@ function Auth() {
   };
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
   const navigate = useNavigate();
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const handleBack = () => {
     navigate('/');
@@ -28,11 +26,17 @@ function Auth() {
   const handleSubmit = (event) => {
     event.preventDefault();
     signInUser(email, password);
+    setCurrentUser(currentUser);
+    console.log('User is' + currentUser);
     setFormFields(defaultFormFields);
   };
 
   const handleSignOut = () => {
-    signOutUser();
+    // signOutUser();
+  };
+
+  const handleTest = () => {
+    console.log(currentUser);
   };
 
   return (
@@ -40,27 +44,24 @@ function Auth() {
       <div className=" sign-in-container row d-flex justify-content-center">
         <div className="col-md-6 col-xl-4">
           <form onSubmit={handleSubmit} className="form-field">
-            <label>
-              Email:
-              <input
-                onChange={handleChange}
-                className="form-card form-control"
-                type="email"
-                name="email"
-                value={email}
-              />
-            </label>
             <br />
-            <label>
-              Password:
-              <input
-                onChange={handleChange}
-                className="form-card form-control"
-                type="password"
-                name="password"
-                value={password}
-              />
-            </label>
+            <input
+              onChange={handleChange}
+              className="form-card form-control"
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+            />
+            <br />
+            <input
+              onChange={handleChange}
+              className="form-card form-control"
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Password"
+            />
             <br />
             <button className="btn btn-success" type="submit">
               Sign In
@@ -72,6 +73,15 @@ function Auth() {
           <button className="btn btn-success signout" onClick={handleSignOut}>
             Sign Out
           </button>
+          <button onClick={handleTest}>Test</button>
+
+          {/* {user ? (
+            <div>
+              <h4>Test</h4>
+            </div>
+          ) : (
+            <p>Please sign in to see the special button.</p>
+          )} */}
         </div>
       </div>
     </div>
