@@ -10,7 +10,7 @@ import SearchSidebar from '../../components/search-sidebar/search-sidebar.compon
 
 function Restaurants() {
   const navigate = useNavigate();
-  const {currentUser} = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const { restaurants } = useContext(RestaurantsContext);
   const [searchValue, setSearchValue] = useState('');
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -40,6 +40,10 @@ function Restaurants() {
   const handleAddRestaurants = () => {
     navigate('/restaurant-form');
   };
+
+  if (!restaurants) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="">
