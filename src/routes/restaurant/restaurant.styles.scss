@@ -1,27 +1,42 @@
-.container {
+.restaurant-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // justify-content: space-evenly;
   padding: 20px;
-  background-color: red;
-}
-
-.map-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.name-card {
-  background-color: white;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  margin: 20px;
+  margin-top: 30px;
+  flex-direction: column;
+  width: 100%;
 }
 
 .restaurant-card {
+  background-color: #188754;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
   display: flex;
+  justify-content: center;
+  margin: 10px;
   flex-direction: column;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.detail {
+  background-color: white;
+  padding: 5px;
   border-radius: 20px;
+}
+
+.description {
+  background-color: white;
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 10px;
+  height: 25vh;
+  overflow-y: auto;
+}
+
+.restaurant-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin: 10px;
 }

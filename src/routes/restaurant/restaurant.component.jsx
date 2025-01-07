@@ -22,37 +22,41 @@ function Restaurant() {
     navigate(`/edit-restaurant/${id}`);
   };
 
+  const handleBack = () => {
+    navigate('/restaurants');
+  };
+
   if (!restaurant) {
     return <p>Loading...</p>;
   }
 
-  const { name, location, type } = restaurant;
+  const { name, location, type, description } = restaurant;
 
   return (
-    <div className="container">
-      <div className="restaurant-card">
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-6 col-xl-4">
-            <div className="">
-              <div className="card-body text-center d-flex flex-column align-items-center">
-                <Map address={location} />
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 col-xl-4">
-            <div className="name-card">
-              <p>{name}</p>
-            </div>
-            <div className="">
-              <p>{location}</p>
-              <p>{type}</p>
-            </div>
-          </div>
-        </div>
-
+    <div className="restaurant-container">
+      <div className="restaurant-buttons-container">
         <button className="btn btn-success" onClick={handleEdit}>
           Edit
         </button>
+        <button className="btn btn-success" onClick={handleBack}>
+          Back
+        </button>
+      </div>
+      <div className="restaurant-card">
+        <div className="detail">
+          <h2>{name}</h2>
+          <p>{type}</p>
+        </div>
+        <div className="row">
+          <div className="col detail map-container">
+            <p>{location}</p>
+            <Map location={location} />
+          </div>
+          <div className="col description">
+            <h4>Greg says...</h4>
+            <p>{description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
