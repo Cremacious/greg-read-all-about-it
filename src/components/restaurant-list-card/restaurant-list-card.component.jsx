@@ -12,7 +12,7 @@ function RestaurantListCard({ restaurant }) {
 
   return (
     <div className="restaurant-card-container">
-      <div className="restaurant-card">
+      <div className="restaurant-card-square">
         <img src={foodSvgs[type]} alt={type} className="image" />
         <div className="restaurant-name">
           <p>{name}</p>
