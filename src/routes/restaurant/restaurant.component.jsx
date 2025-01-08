@@ -49,7 +49,7 @@ function Restaurant() {
       </div>
       <div className="restaurant-card">
         
-
+<Map address={location} />
       </div>
     </div>
   );
