@@ -48,8 +48,20 @@ function Restaurant() {
         </button>
       </div>
       <div className="restaurant-card">
-        
-<Map address={location} />
+        <div className="restaurant-detail">
+          <h1>{name}</h1>
+          <p>{type}</p>
+          <p>{location}</p>
+        </div>
+        <div className="restaurant-detail">
+          <div className="greg-says">
+            <p>Greg says...</p>
+          </div>
+          <p>{description}</p>
+        </div>
+        <div className="map-container">
+          <Map address={location} />
+        </div>
       </div>
     </div>
   );

@@ -3,17 +3,30 @@
   flex-direction: column;
 }
 
+.restaurant-buttons-container {
+  margin: 20px;
+}
+
 .restaurant-card {
   background-color: #188754;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 20px;
+  margin: 0 20px 0 20px;
 }
 
-.detail {
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+
+.restaurant-detail {
   background-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
-.restaurant-buttons-container {
-  margin: 20px;
+.greg-says {
+  font-weight: bold ;
 }
